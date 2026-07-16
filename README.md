@@ -1,4 +1,7 @@
-# javascript-npm-template-repository
-This acts as a template to setup further Javascript projects. Setup Webpack with HTML plugin, CSS, and image features. 
-Setup production and development in separate files  and use Webpack-merge following the production guide:
-https://webpack.js.org/guides/production/
+# javascript To Do List
+Create a To Do List application to practice skills and concepts learnt
+in the curriculum such as Webpack, Classes/Composition, the Single
+Responsibility Principle. 
+
+Project details can be found here:
+https://www.theodinproject.com/lessons/javascript-todo-list
