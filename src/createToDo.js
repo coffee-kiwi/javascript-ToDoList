@@ -1,5 +1,6 @@
-// Export to ...
-// Import functions from addToDoProperties
+// Can use the below line to import functions then 
+// add them as a prototype to the ToDos class. 
+// import * as addToDoProperties from "./addToDoProperties.js";
 
 // Create new object 
 
@@ -9,6 +10,6 @@ class ToDos {
         this.checkList = false;
     }
 }
-
+// Object.assign(ToDos.prototype, addToDoProperties);
 
 export { ToDos };
