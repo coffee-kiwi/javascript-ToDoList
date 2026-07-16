@@ -6,3 +6,5 @@
 function addToDoToProject(project, toDo) {
     project.toDos.push(toDo);
 }
+
+export { addToDoToProject };

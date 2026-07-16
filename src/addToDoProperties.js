@@ -3,21 +3,23 @@
 // Todos need the following properties for now:
 // Title, description, dueDate, priority, checklist
 
-function addTitle(title) {
-    this.title = title;
+function addTitle(todo, title) {
+    todo.title = title;
 }
 
-function addDescription(description) {
-    this.description = description;
+function addDescription(todo, description) {
+    todo.description = description;
 }
 
-function addDueDate(dueDate) {
-    this.dueDate = dueDate;
+function addDueDate(todo, dueDate) {
+    todo.dueDate = dueDate;
 }
 
-function addPriority(priority) {
-    this.priority = priority;
+function addPriority(todo, priority) {
+    todo.priority = priority;
 
-}function addChecklist(checklist) {
-    this.checkList = checklist;
+}function addChecklist(todo, checklist) {
+    todo.checkList = checklist;
 }
+
+export { addTitle, addDescription, addDueDate, addPriority, addChecklist };

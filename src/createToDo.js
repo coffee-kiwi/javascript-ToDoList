@@ -9,3 +9,6 @@ class ToDos {
         this.checkList = false;
     }
 }
+
+
+export { ToDos };
