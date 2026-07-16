@@ -11,7 +11,7 @@ function showToDoList(project, container) {
                 entry.textContent = `${val}.`
                 console.log(`${item}'s ${key} is ${val}.`)
                 newItem.appendChild(entry);
-            } else if (key != "checkList") {
+            } else if ((key != "checkList")  && (key != "id")) {
                 const entry = document.createElement("p");
                 entry.textContent = `${key}: ${val}.`
                 console.log(`${item}'s ${key} is ${val}.`)

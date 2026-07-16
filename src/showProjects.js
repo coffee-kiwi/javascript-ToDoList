@@ -1,10 +1,12 @@
 
 function showProject(project, container) {
-    const projectCard = document.createElement("article");
-    projectCard.textContent = project.title;
-    projectCard.classList.add("card")
+    const projectBtn = document.createElement("button");
+    projectBtn.type = "button";
+    projectBtn.textContent = project.title;
+    projectBtn.classList.add("projectBtn")
+    projectBtn.dataset.id = project.id;
 
-    container.appendChild(projectCard);
+    container.appendChild(projectBtn);
 }
 
 export { showProject };

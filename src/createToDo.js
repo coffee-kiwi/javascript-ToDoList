@@ -10,6 +10,7 @@ class ToDos {
     constructor(title) {
         this.title = title;
         this.checkList = false;
+        this.id = crypto.randomUUID();
     }
 }
 // Object.assign(ToDos.prototype, addToDoProperties);
