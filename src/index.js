@@ -10,20 +10,23 @@ import { ToDos } from "./createToDo.js";
 import { addToDoToProject } from "./addToDoToProject.js";
 import { showProject } from "./showProjects.js";
 import { showToDoList } from "./showToDoList.js";
-
+import newProjectForm from "./newProjectForm.js";
+import { getProjects, addProject, findProject } from "./state.js";
 
 const mainContainer = document.getElementById("project-display");
 const sidebar = document.getElementById("sidebar");
+const newProjectBtn = document.getElementById("new-btn");
+const mainContainerTitle = document.getElementById("main-content-title");
 
-const myProjects = [];
-const lifeList = new Project("Life");
-myProjects.push(lifeList);
-console.log(myProjects);
+
 
 
 // -------------------------------------------------------
 // Create basic dataset for testing setup:
 // -------------------------------------------------------
+const lifeList = new Project("Life");
+addProject(lifeList);
+
 const something = new ToDos("eat an avocado");
 
 addToDoProperties.addDescription(something, "Avocados are healthy so I need to eat one.");
@@ -40,12 +43,15 @@ showProject(lifeList, sidebar);
 // End dataset
 // -------------------------------------------------------
 
-
-const projectButtons = document.querySelectorAll(".projectBtn")
-projectButtons.forEach(button => {
-  button.addEventListener("click", (event) => {
-    const projectId = button.dataset.id;
-    const thisProject = myProjects.find((element) => element.id === projectId);
+sidebar.addEventListener("click", (e) => {
+  if (!event.target.classList.contains("projectBtn")) return;
+    const projectId = event.target.dataset.id;
+    const thisProject = findProject(projectId);
+    mainContainerTitle.textContent = `${thisProject.title}`;
     showToDoList(thisProject, mainContainer);
-  })
+});
+
+newProjectBtn.addEventListener("click", (e) => {
+  console.log("New Project form generating");
+  newProjectForm();
 });
