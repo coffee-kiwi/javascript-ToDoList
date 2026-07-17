@@ -17,7 +17,7 @@ export default function newProjectForm() {
     titleInput.setAttribute("type", "text");
     titleInput.setAttribute("name", "title");
     titleInput.setAttribute("placeholder", "Home");
-    titleInput.setAttribute("minlength", "1");
+    titleInput.setAttribute("required", "");
 
     const message = document.createElement("p");
     message.textContent = "* required"
@@ -27,7 +27,6 @@ export default function newProjectForm() {
 
     const submitBtn = document.createElement("button");
     submitBtn.classList.add("form-button");
-    submitBtn.type = "button";
     submitBtn.textContent = "Create New Project";
 
     projectForm.appendChild(titleInput);
@@ -37,11 +36,16 @@ export default function newProjectForm() {
     formContainer.appendChild(projectForm);
 
     submitBtn.addEventListener("click", (e) => {
-        formContainer.textContent = "";
-        contentTitle.textContent = "";
-        const save = Object.fromEntries(new FormData(projectForm));
-        const newProject = new Project(save.title);
-        addProject(newProject);
-        showProject(newProject, document.getElementById("sidebar"));
+        console.log(`The validity of this form is: ${projectForm.checkValidity()}`)
+        if (projectForm.checkValidity()) {
+            formContainer.textContent = "";
+            contentTitle.textContent = "";
+            const save = Object.fromEntries(new FormData(projectForm));
+            const newProject = new Project(save.title);
+            addProject(newProject);
+            showProject(newProject, document.getElementById("sidebar"));
+        } else {
+            message.textContent = "Ensure to write a title for this project!"
+        } 
     });
 }
