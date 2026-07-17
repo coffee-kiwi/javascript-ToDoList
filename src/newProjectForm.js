@@ -7,8 +7,8 @@ export default function newProjectForm() {
 
     const formContainer = document.getElementById("form-display");
     const formContainerTitle = document.getElementById("main-content-title");
-    const projectDisplay = document.getElementById("project-display");
-    projectDisplay.textContent = "";
+    const display = document.getElementById("display");
+    display.textContent = "";
     formContainerTitle.textContent = "Add a new Project:"
 
     const projectForm = document.createElement("form");

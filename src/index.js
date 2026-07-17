@@ -13,7 +13,7 @@ import { showToDoList } from "./showToDoList.js";
 import newProjectForm from "./newProjectForm.js";
 import { getProjects, addProject, findProject } from "./state.js";
 
-const mainContainer = document.getElementById("project-display");
+const mainContainer = document.getElementById("display");
 const sidebar = document.getElementById("sidebar");
 const newProjectBtn = document.getElementById("new-btn");
 const mainContainerTitle = document.getElementById("main-content-title");
