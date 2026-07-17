@@ -6,10 +6,10 @@ import { showProject } from "./showProjects.js";
 export default function newProjectForm() {
 
     const formContainer = document.getElementById("form-display");
-    const formContainerTitle = document.getElementById("main-content-title");
+    const contentTitle = document.getElementById("main-content-title");
     const display = document.getElementById("display");
     display.textContent = "";
-    formContainerTitle.textContent = "Add a new Project:"
+    contentTitle.textContent = "Add a new Project:"
 
     const projectForm = document.createElement("form");
 
@@ -38,7 +38,7 @@ export default function newProjectForm() {
 
     submitBtn.addEventListener("click", (e) => {
         formContainer.textContent = "";
-        formContainerTitle.textContent = "";
+        contentTitle.textContent = "";
         const save = Object.fromEntries(new FormData(projectForm));
         const newProject = new Project(save.title);
         addProject(newProject);
