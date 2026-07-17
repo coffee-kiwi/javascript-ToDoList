@@ -12,10 +12,6 @@ export default function newProjectForm() {
     formContainerTitle.textContent = "Add a new Project:"
 
     const projectForm = document.createElement("form");
-    // projectForm.setAttribute("method", "post");
-    // What method should I actually set it too..?
-    // projectForm.setAttribute("action", "/submit-data")
-    // Does it need to submit data? Maybe not..
 
     const titleInput = document.createElement("input");
     titleInput.setAttribute("type", "text");
@@ -34,17 +30,13 @@ export default function newProjectForm() {
     submitBtn.type = "button";
     submitBtn.textContent = "Create New Project";
 
-    // projectForm.appendChild(projectForm);
     projectForm.appendChild(titleInput);
     projectForm.appendChild(message);
     projectForm.appendChild(lineBreak);
     projectForm.appendChild(submitBtn);
-    // projectDisplay.appendChild(projectForm);
     formContainer.appendChild(projectForm);
 
-    // Add event listener to process data and create+display project
     submitBtn.addEventListener("click", (e) => {
-        // e.preventDefault();
         formContainer.textContent = "";
         formContainerTitle.textContent = "";
         const save = Object.fromEntries(new FormData(projectForm));
