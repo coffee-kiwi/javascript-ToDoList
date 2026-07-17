@@ -45,7 +45,7 @@ export default function newProjectForm() {
             addProject(newProject);
             showProject(newProject, document.getElementById("sidebar"));
         } else {
-            message.textContent = "Ensure to write a title for this project!"
+            message.textContent = "Ensure to write a title for this project :)"
         } 
     });
 }
