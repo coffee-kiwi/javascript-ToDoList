@@ -9,12 +9,10 @@ function showToDoList(project, container) {
             if (key === "title") {
                 const entry = document.createElement("h2");
                 entry.textContent = `${val}.`
-                console.log(`${item}'s ${key} is ${val}.`)
                 newItem.appendChild(entry);
             } else if ((key != "checkList")  && (key != "id")) {
                 const entry = document.createElement("p");
                 entry.textContent = `${key}: ${val}.`
-                console.log(`${item}'s ${key} is ${val}.`)
                 newItem.appendChild(entry);
             }
         });

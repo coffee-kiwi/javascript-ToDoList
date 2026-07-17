@@ -32,13 +32,17 @@ main {
     
 }
 
-#sidebar .projectBtn {
+#sidebar .projectBtn,
+#new-btn {
     background-color: lightgrey;
     border-radius: 8px;
     padding: 8px;
 
 }
 
+.small {
+    font-size: small;
+}
 /* .sidebar {
     grid-area: 1 / 1 / 2 / 2; 
 }
