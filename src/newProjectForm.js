@@ -1,4 +1,4 @@
-import { addProject } from "./state.js";
+import { addProject, saveProjects } from "./state.js";
 import Project from "./createProject.js";
 import { showProject } from "./showProjects.js";
 
@@ -46,6 +46,7 @@ export default function newProjectForm() {
             const newProject = new Project(save.title);
             addProject(newProject);
             showProject(newProject, document.getElementById("sidebar"));
+            saveProjects();
         } else {
             message.textContent = "Ensure to write a title for this project :)"
         } 

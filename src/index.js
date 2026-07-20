@@ -12,12 +12,23 @@ import { addToDoToProject } from "./addToDoToProject.js";
 import { showProject } from "./showProjects.js";
 import { showToDoList } from "./showToDoList.js";
 import newProjectForm from "./newProjectForm.js";
-import { getProjects, addProject, findProject } from "./state.js";
+import { getProjects, addProject, findProject, saveProjects, loadProjects  } from "./state.js";
 
 const mainContainer = document.getElementById("display");
 const sidebar = document.getElementById("sidebar");
 const newProjectBtn = document.getElementById("new-btn");
 const mainContainerTitle = document.getElementById("main-content-title");
+if (loadProjects() !== null) {
+  console.log(`Locally stored projects loaded successfully`);
+};
+console.log("Check what is inside myProjects now:")
+  let loadedProjects = getProjects();  
+  loadedProjects.forEach(project => {
+        showProject(project, sidebar);
+        console.log(`Project is: ${project.title}`);
+    });
+
+
 console.log("Testing date-fns package:");
 const today = new Date();
 console.log(format(new Date(), "yyyy-MM-dd"));
@@ -30,21 +41,21 @@ console.log("--------------------------");
 // -------------------------------------------------------
 // Create basic dataset for testing setup:
 // -------------------------------------------------------
-const lifeList = new Project("Life");
-addProject(lifeList);
+// const lifeList = new Project("Life");
+// addProject(lifeList);
 
-const something = new ToDos("eat an avocado");
+// const something = new ToDos("eat an avocado");
 
-addToDoProperties.addDescription(something, "Avocados are healthy so I need to eat one.");
-addToDoProperties.addDueDate(something, "Today");
-addToDoProperties.addPriority(something, "Urgent");
+// addToDoProperties.addDescription(something, "Avocados are healthy so I need to eat one.");
+// addToDoProperties.addDueDate(something, "Today");
+// addToDoProperties.addPriority(something, "Urgent");
 
-addToDoToProject(lifeList, something);
+// addToDoToProject(lifeList, something);
 
-const eatFish = new ToDos("eat a fish");
-addToDoToProject(lifeList, eatFish);
+// const eatFish = new ToDos("eat a fish");
+// addToDoToProject(lifeList, eatFish);
 
-showProject(lifeList, sidebar);
+// showProject(lifeList, sidebar);
 // -------------------------------------------------------
 // End dataset
 // -------------------------------------------------------
