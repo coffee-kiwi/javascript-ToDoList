@@ -11,20 +11,11 @@
    entry: {
      app: './src/index.js',
    },
-  // resolve: {
-  //   alias: {
-  //     "date-fns-locale": path.dirname(require.resolve("date-fns/package.json")),
-  //   },
-  // },
    plugins: [
      new HtmlWebpackPlugin({
        title: 'Production',
        template: "./src/template.html",
      }),
-    //  new webpack.ContextReplacementPlugin(
-    //    /date-fns[/\\]locale/,
-    //    new RegExp(`(${locales.join("|")})\.js$`),
-    // ),
    ],
    devtool: "eval-source-map",
     devServer: {
