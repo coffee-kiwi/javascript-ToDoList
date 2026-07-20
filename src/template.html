@@ -5,15 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To Do List</title>
 </head>
-<body>
-    <header>
-        <h1>Let's get things done</h1>
+<body class="bg-slate-700 min-h-screen">
+    <header class="flex justify-center items-center py-6">
+        <h1 class="text-2xl font-bold text-white">Let's get things done</h1>
     </header>
 
-    <main>
+    <main class="grid grid-cols-[1fr_3fr] gap-4 p-4">
         <section id="sidebar">
             <h2>Projects</h2>
-            <button type="button" id="new-btn">New Project</button>
+            <button type="button" id="new-btn" class="bg-blue-500 hover:bg-blue-600 text-white rounded-lg px-4 py-2 transition-colors">New Project</button>
         </section>
 
         <section class="main-content">

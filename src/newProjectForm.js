@@ -15,12 +15,14 @@ export default function newProjectForm() {
     formTitle.textContent = "Add a new Project:"
 
     const projectForm = document.createElement("form");
+    projectForm.classList.add("border", "border-gray-300", "rounded", "px-3", "py-2", "w-full", "focus:outline-none", "focus:ring-2", "focus:ring-blue-400");
 
     const titleInput = document.createElement("input");
     titleInput.setAttribute("type", "text");
     titleInput.setAttribute("name", "title");
     titleInput.setAttribute("placeholder", "Home");
     titleInput.setAttribute("required", "");
+    titleInput.classList.add("bg-gray-100", "border-gray-100", "rounded", "px-1", "py-1");
 
     const message = document.createElement("p");
     message.textContent = "* required"
@@ -29,7 +31,7 @@ export default function newProjectForm() {
     const lineBreak = document.createElement("br")
 
     const submitBtn = document.createElement("button");
-    submitBtn.classList.add("form-button");
+    submitBtn.classList.add("form-button", "bg-blue-500", "hover:bg-blue-600", "text-white", "rounded-lg", "px-4", "py-2", "transition-colors");
     submitBtn.textContent = "Create New Project";
 
     projectForm.appendChild(titleInput);
