@@ -7,10 +7,12 @@ export default function newProjectForm() {
 
     const formContainer = document.getElementById("form-display");
     const contentTitle = document.getElementById("main-content-title");
+    const formTitle = document.getElementById("form-title");
     const display = document.getElementById("display");
     display.textContent = "";
+    contentTitle.textContent = "";
     formContainer.textContent = "";
-    contentTitle.textContent = "Add a new Project:"
+    formTitle.textContent = "Add a new Project:"
 
     const projectForm = document.createElement("form");
 
@@ -41,7 +43,7 @@ export default function newProjectForm() {
         console.log(`The validity of this form is: ${projectForm.checkValidity()}`)
         if (projectForm.checkValidity()) {
             formContainer.textContent = "";
-            contentTitle.textContent = "";
+            formTitle.textContent = "";
             const save = Object.fromEntries(new FormData(projectForm));
             const newProject = new Project(save.title);
             addProject(newProject);
