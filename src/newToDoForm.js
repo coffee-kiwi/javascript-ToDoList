@@ -1,4 +1,4 @@
-import { getProjects, findProject } from "./state.js"
+import { getProjects, findProject, saveProjects } from "./state.js"
 import { ToDos } from "./createToDo.js";
 import * as addToDoProperties from "./addToDoProperties.js";
 import { format } from 'date-fns';
@@ -8,11 +8,10 @@ import { showToDoList } from "./showToDoList.js";
 export default function newToDoForm(project) {
 
     const formContainer = document.getElementById("form-display");
-    const contentTitle = document.getElementById("main-content-title");
+    const formTitle = document.getElementById("form-title");
     const display = document.getElementById("display");
-    // display.textContent = "";
     formContainer.textContent = "";
-    contentTitle.textContent = "Add a new activity, task, or event:"
+    formTitle.textContent = "Add a new activity, task, or event:"
 
     const toDoForm = document.createElement("form");
 
@@ -39,7 +38,6 @@ export default function newToDoForm(project) {
     descriptionInput.setAttribute("name", "description");
     descriptionInput.setAttribute("placeholder", "Short description..");
 
-    // Change type for due date?
     const dateLabel = document.createElement("label");
     dateLabel.htmlFor = "dueDate"; 
     dateLabel.textContent = "Due Date: ";
@@ -48,7 +46,6 @@ export default function newToDoForm(project) {
     dueDateInput.setAttribute("name", "dueDate");
     dueDateInput.setAttribute("placeholder", "2026/07/20");
 
-    // Change type for priority?
     const priorityLabel = document.createElement("label");
     priorityLabel.htmlFor = "title"; 
     priorityLabel.textContent = "Priority: ";
@@ -77,12 +74,11 @@ export default function newToDoForm(project) {
     toDoForm.appendChild(submitBtn);
     formContainer.appendChild(toDoForm);
 
-
-    // Alter below to correctly update/addfunctions/ whaterver on click
     submitBtn.addEventListener("click", (e) => {
         console.log(`The validity of this form is: ${toDoForm.checkValidity()}`)
         if (toDoForm.checkValidity()) {
             formContainer.textContent = "";
+            formTitle.textContent = "";
             contentTitle.textContent = `${project.title}`;
             const save = Object.fromEntries(new FormData(toDoForm));
             const newToDo = new ToDos(save.title);
@@ -91,6 +87,7 @@ export default function newToDoForm(project) {
             addToDoProperties.addPriority(newToDo, save["priority"]);
             addToDoToProject(project, newToDo);
             showToDoList(project, display);
+            saveProjects();
         } else {
             message.textContent = "Ensure to write a title for this new to do :)"
         } 
