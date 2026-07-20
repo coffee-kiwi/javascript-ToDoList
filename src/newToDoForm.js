@@ -4,6 +4,7 @@ import * as addToDoProperties from "./addToDoProperties.js";
 import { format } from 'date-fns';
 import { addToDoToProject } from "./addToDoToProject.js";
 import { showToDoList } from "./showToDoList.js";
+// import { format, parse } from 'date-fns';
 
 export default function newToDoForm(project) {
 
@@ -42,10 +43,10 @@ export default function newToDoForm(project) {
     const dateLabel = document.createElement("label");
     dateLabel.htmlFor = "due"; 
     dateLabel.textContent = "Due: ";
+
     const dueInput = document.createElement("input");
-    dueInput.setAttribute("type", "text");
+    dueInput.setAttribute("type", "date");
     dueInput.setAttribute("name", "due");
-    dueInput.setAttribute("placeholder", "2026/07/20");
 
     const priorityLabel = document.createElement("label");
     priorityLabel.htmlFor = "title"; 
