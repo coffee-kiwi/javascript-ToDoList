@@ -1,3 +1,5 @@
+ @import "tailwindcss";
+/*
 * {
     margin: 0;
     padding: 0;
@@ -25,8 +27,8 @@ main {
     gap: 24px;
 
 
-    /* display: grid; */
-    /* grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); */
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
 }
 
 .to-do-item {
@@ -39,9 +41,7 @@ main {
 .to-do-item h2::first-letter {
     text-transform: capitalize;
 }
-/* .capitalize-first::first-letter {
-  text-transform: uppercase;
-} */
+
 
 #sidebar {
     display: grid;
@@ -66,14 +66,14 @@ main {
 .main-content {
     display: flex;
     flex-direction: column;
-    /* justify-content: center; */
+    justify-content: center;
     align-items: center;
     gap: 24px;
 }
-/* .sidebar {
+.sidebar {
     grid-area: 1 / 1 / 2 / 2; 
 }
 
 .main-content {
 grid-area: 1 / 2 / 2 / 3;
-*/
+ */

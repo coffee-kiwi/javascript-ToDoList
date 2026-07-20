@@ -22,6 +22,8 @@
     "webpack-merge": "^6.0.1"
   },
   "dependencies": {
-    "date-fns": "^4.4.0"
+    "@tailwindcss/webpack": "^4.3.3",
+    "date-fns": "^4.4.0",
+    "tailwindcss": "^4.3.3"
   }
 }

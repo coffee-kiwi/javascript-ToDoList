@@ -1,9 +1,9 @@
  import path from 'node:path';
  import { fileURLToPath } from 'node:url';
  import HtmlWebpackPlugin from 'html-webpack-plugin';
-//  import webpack from "webpack";
-//  import { supportedLocales } from "./.js";
 
+//  const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+//  const TailwindCSSPlugin = require('@tailwindcss/webpack');
  const __filename = fileURLToPath(import.meta.url);
  const __dirname = path.dirname(__filename);
 
@@ -30,7 +30,7 @@
     rules: [
       {
         test: /\.css$/i,
-        use: ["style-loader", "css-loader"],
+        use: ["style-loader", "css-loader", "@tailwindcss/webpack"],
       },
       {
         test: /\.html$/i,
