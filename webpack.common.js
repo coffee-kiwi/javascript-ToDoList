@@ -1,6 +1,8 @@
  import path from 'node:path';
  import { fileURLToPath } from 'node:url';
  import HtmlWebpackPlugin from 'html-webpack-plugin';
+//  import webpack from "webpack";
+//  import { supportedLocales } from "./.js";
 
  const __filename = fileURLToPath(import.meta.url);
  const __dirname = path.dirname(__filename);
@@ -9,11 +11,20 @@
    entry: {
      app: './src/index.js',
    },
+  // resolve: {
+  //   alias: {
+  //     "date-fns-locale": path.dirname(require.resolve("date-fns/package.json")),
+  //   },
+  // },
    plugins: [
      new HtmlWebpackPlugin({
        title: 'Production',
        template: "./src/template.html",
      }),
+    //  new webpack.ContextReplacementPlugin(
+    //    /date-fns[/\\]locale/,
+    //    new RegExp(`(${locales.join("|")})\.js$`),
+    // ),
    ],
    devtool: "eval-source-map",
     devServer: {
