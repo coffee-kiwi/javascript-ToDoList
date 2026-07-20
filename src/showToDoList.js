@@ -1,3 +1,5 @@
+import newToDoForm from "./newToDoForm.js";
+import newToDo from "./newToDoForm.js"
 
 function showToDoList(project, container) {
 
@@ -18,7 +20,9 @@ function showToDoList(project, container) {
         });
         container.appendChild(newItem);
     }); 
-
+    const newToDoButton = document.createElement("button");
+    newToDoButton.textContent = "Add a new task or activity";
+    newToDoButton.addEventListener("click", newToDoForm(project));
 }
 
 export { showToDoList };

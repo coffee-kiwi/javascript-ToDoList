@@ -1,4 +1,5 @@
 import "./styles.css";
+import { format } from 'date-fns';
 
 if (process.env.NODE_ENV !== 'production') {
    console.log('Looks like we are in development mode!');
@@ -17,6 +18,11 @@ const mainContainer = document.getElementById("display");
 const sidebar = document.getElementById("sidebar");
 const newProjectBtn = document.getElementById("new-btn");
 const mainContainerTitle = document.getElementById("main-content-title");
+console.log("Testing date-fns package:");
+const today = new Date();
+console.log(format(new Date(), "yyyy-MM-dd"));
+console.log(`today made from new Date() is ${today}`);
+console.log("--------------------------");
 
 
 

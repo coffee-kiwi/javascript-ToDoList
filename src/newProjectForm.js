@@ -9,6 +9,7 @@ export default function newProjectForm() {
     const contentTitle = document.getElementById("main-content-title");
     const display = document.getElementById("display");
     display.textContent = "";
+    formContainer.textContent = "";
     contentTitle.textContent = "Add a new Project:"
 
     const projectForm = document.createElement("form");
@@ -36,6 +37,7 @@ export default function newProjectForm() {
     formContainer.appendChild(projectForm);
 
     submitBtn.addEventListener("click", (e) => {
+        e.preventDefault()
         console.log(`The validity of this form is: ${projectForm.checkValidity()}`)
         if (projectForm.checkValidity()) {
             formContainer.textContent = "";

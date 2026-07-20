@@ -7,7 +7,7 @@
 // Create new object 
 
 class ToDos {
-    constructor(title) {
+    constructor(title = "activity") {
         this.title = title;
         this.checkList = false;
         this.id = crypto.randomUUID();
