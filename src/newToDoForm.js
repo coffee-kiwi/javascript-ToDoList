@@ -8,6 +8,7 @@ import { showToDoList } from "./showToDoList.js";
 export default function newToDoForm(project) {
 
     const formContainer = document.getElementById("form-display");
+    const contentTitle = document.getElementById("main-content-title")
     const formTitle = document.getElementById("form-title");
     const display = document.getElementById("display");
     formContainer.textContent = "";
@@ -49,14 +50,19 @@ export default function newToDoForm(project) {
     const priorityLabel = document.createElement("label");
     priorityLabel.htmlFor = "title"; 
     priorityLabel.textContent = "Priority: ";
-    const priorityInput = document.createElement("input");
-    priorityInput.setAttribute("type", "text");
-    priorityInput.setAttribute("name", "priority");
-    priorityInput.setAttribute("placeholder", "urgent / high / medium / low");
+
+    const choices = ['Urgent', 'High', 'Medium', 'Low'];
+    const selectPriority = document.createElement('select');
+    selectPriority.setAttribute("name", "priority");
+
+    choices.forEach(choice => {
+        const option = new Option(choice, choice);
+        selectPriority.add(option); 
+    });
 
     const submitBtn = document.createElement("button");
     submitBtn.classList.add("form-button");
-    submitBtn.textContent = "Create New Project";
+    submitBtn.textContent = "Create New Task/Activity";
 
     toDoForm.appendChild(titleLabel);
     toDoForm.appendChild(titleInput);
@@ -69,7 +75,8 @@ export default function newToDoForm(project) {
     toDoForm.appendChild(dueInput);
     toDoForm.appendChild(lineBreak);
     toDoForm.appendChild(priorityLabel);
-    toDoForm.appendChild(priorityInput);
+    // toDoForm.appendChild(priorityInput);
+    toDoForm.appendChild(selectPriority);
     toDoForm.appendChild(lineBreak);
     toDoForm.appendChild(submitBtn);
     formContainer.appendChild(toDoForm);
