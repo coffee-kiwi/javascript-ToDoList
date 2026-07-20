@@ -28,37 +28,11 @@ console.log("Check what is inside myProjects now:")
         console.log(`Project is: ${project.title}`);
     });
 
-
 console.log("Testing date-fns package:");
 const today = new Date();
 console.log(format(new Date(), "yyyy-MM-dd"));
 console.log(`today made from new Date() is ${today}`);
 console.log("--------------------------");
-
-
-
-
-// -------------------------------------------------------
-// Create basic dataset for testing setup:
-// -------------------------------------------------------
-// const lifeList = new Project("Life");
-// addProject(lifeList);
-
-// const something = new ToDos("eat an avocado");
-
-// addToDoProperties.addDescription(something, "Avocados are healthy so I need to eat one.");
-// addToDoProperties.addDueDate(something, "Today");
-// addToDoProperties.addPriority(something, "Urgent");
-
-// addToDoToProject(lifeList, something);
-
-// const eatFish = new ToDos("eat a fish");
-// addToDoToProject(lifeList, eatFish);
-
-// showProject(lifeList, sidebar);
-// -------------------------------------------------------
-// End dataset
-// -------------------------------------------------------
 
 sidebar.addEventListener("click", (e) => {
   if (!event.target.classList.contains("projectBtn")) return;
