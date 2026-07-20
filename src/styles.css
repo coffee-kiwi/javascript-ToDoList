@@ -20,9 +20,28 @@ main {
 }
 
 #display {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+
+    /* display: grid; */
+    /* grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); */
 }
+
+.to-do-item {
+    background-color: lightgrey;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.to-do-item p::first-letter,
+.to-do-item h2::first-letter {
+    text-transform: capitalize;
+}
+/* .capitalize-first::first-letter {
+  text-transform: uppercase;
+} */
 
 #sidebar {
     display: grid;
@@ -42,6 +61,14 @@ main {
 
 .small {
     font-size: small;
+}
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    gap: 24px;
 }
 /* .sidebar {
     grid-area: 1 / 1 / 2 / 2; 

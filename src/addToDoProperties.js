@@ -1,7 +1,3 @@
-// Need to export to ...
-
-// Todos need the following properties for now:
-// Title, description, dueDate, priority, checklist
 
 function addTitle(todo, title) {
     todo.title = title;
@@ -11,8 +7,8 @@ function addDescription(todo, description) {
     todo.description = description;
 }
 
-function addDueDate(todo, dueDate) {
-    todo.dueDate = dueDate;
+function addDue(todo, due) {
+    todo.due = due;
 }
 
 function addPriority(todo, priority) {
@@ -22,4 +18,4 @@ function addPriority(todo, priority) {
     todo.checkList = checklist;
 }
 
-export { addTitle, addDescription, addDueDate, addPriority, addChecklist };
+export { addTitle, addDescription, addDue, addPriority, addChecklist };

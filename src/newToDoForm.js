@@ -39,12 +39,12 @@ export default function newToDoForm(project) {
     descriptionInput.setAttribute("placeholder", "Short description..");
 
     const dateLabel = document.createElement("label");
-    dateLabel.htmlFor = "dueDate"; 
-    dateLabel.textContent = "Due Date: ";
-    const dueDateInput = document.createElement("input");
-    dueDateInput.setAttribute("type", "text");
-    dueDateInput.setAttribute("name", "dueDate");
-    dueDateInput.setAttribute("placeholder", "2026/07/20");
+    dateLabel.htmlFor = "due"; 
+    dateLabel.textContent = "Due: ";
+    const dueInput = document.createElement("input");
+    dueInput.setAttribute("type", "text");
+    dueInput.setAttribute("name", "due");
+    dueInput.setAttribute("placeholder", "2026/07/20");
 
     const priorityLabel = document.createElement("label");
     priorityLabel.htmlFor = "title"; 
@@ -66,7 +66,7 @@ export default function newToDoForm(project) {
     toDoForm.appendChild(descriptionInput);
     toDoForm.appendChild(lineBreak);
     toDoForm.appendChild(dateLabel);
-    toDoForm.appendChild(dueDateInput);
+    toDoForm.appendChild(dueInput);
     toDoForm.appendChild(lineBreak);
     toDoForm.appendChild(priorityLabel);
     toDoForm.appendChild(priorityInput);
@@ -83,7 +83,7 @@ export default function newToDoForm(project) {
             const save = Object.fromEntries(new FormData(toDoForm));
             const newToDo = new ToDos(save.title);
             addToDoProperties.addDescription(newToDo, save["description"]);
-            addToDoProperties.addDueDate(newToDo, save["dueDate"]);
+            addToDoProperties.addDue(newToDo, save["due"]);
             addToDoProperties.addPriority(newToDo, save["priority"]);
             addToDoToProject(project, newToDo);
             showToDoList(project, display);

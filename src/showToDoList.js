@@ -6,6 +6,7 @@ function showToDoList(project, container) {
     container.textContent = "";
     project.toDos.forEach((item) => {
         const newItem = document.createElement("article"); 
+        newItem.classList.add("to-do-item")
 
         Object.entries(item).forEach(([key, val]) => {
             if (key === "title") {
