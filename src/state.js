@@ -1,5 +1,6 @@
 
 let myProjects = [];
+const SAVE_NAME = "myProjects";
 
 function getProjects() {
     return myProjects;
@@ -14,17 +15,29 @@ function findProject(id) {
 }
 
 function saveProjects() {
-    localStorage.setItem("myProjects", JSON.stringify(myProjects));
+    try { 
+        localStorage.setItem(SAVE_NAME, JSON.stringify(myProjects));
+    } catch (e) {
+        console.warn("Unable to save data in localStorage.")
+    }
 }
 
 function loadProjects() {
-    const loadedProjects = JSON.parse(localStorage.getItem("myProjects"));
-    console.log(`myProjects const is now ${loadedProjects}`)
-    loadedProjects.forEach(project => {
-        console.log(`Project is: ${project.title}`);
-        addProject(project);
-        console.log(`myProjects is now: ${myProjects}`);
-    });
+    let loadedProjects;
+    try {
+        loadedProjects = JSON.parse(localStorage.getItem(SAVE_NAME));    
+    } catch (e) {
+        console.warn("Saved project data might be corrupted; starting fresh.");
+        return null;
+    }
+    if (!loadedProjects) return null;
+
+    myProjects = loadedProjects;
+    return myProjects;
+
+    // Note, if projects or ToDos have classes added, they will
+    // not be loaded here, so make sure to add them with 
+    // Object.assign or something
 
 }
 

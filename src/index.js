@@ -28,14 +28,9 @@ console.log("Check what is inside myProjects now:")
         console.log(`Project is: ${project.title}`);
     });
 
-console.log("Testing date-fns package:");
-const today = new Date();
-console.log(format(new Date(), "yyyy-MM-dd"));
-console.log(`today made from new Date() is ${today}`);
-console.log("--------------------------");
 
 sidebar.addEventListener("click", (e) => {
-  if (!event.target.classList.contains("projectBtn")) return;
+  if (!e.target.classList.contains("projectBtn")) return;
     const projectId = event.target.dataset.id;
     const thisProject = findProject(projectId);
     mainContainerTitle.textContent = `${thisProject.title}`;
