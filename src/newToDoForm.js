@@ -39,8 +39,6 @@ export default function newToDoForm(project) {
     message.textContent = "* required"
     message.classList.add("text-sm", "text-white");
 
-    const lineBreak = document.createElement("br")
-
     const descriptionLabel = document.createElement("label");
     descriptionLabel.htmlFor = "description"; 
     descriptionLabel.textContent = "Description: ";
@@ -78,27 +76,18 @@ export default function newToDoForm(project) {
     submitBtn.classList.add("form-button", "bg-blue-500", "hover:bg-blue-600", "text-white", "rounded-lg", "px-4", "py-2", "transition-colors");
     submitBtn.textContent = "Create New Task/Activity";
 
-    // toDoForm.appendChild(titleLabel);
-    // toDoForm.appendChild(message);
-    // toDoForm.appendChild(titleInput);
-
     titleAndMessage.appendChild(titleLabel);
     titleAndMessage.appendChild(message);
     toDoForm.appendChild(titleAndMessage);
     toDoForm.appendChild(titleInput);
-    // toDoForm.appendChild(lineBreak);
     toDoForm.appendChild(descriptionLabel);
     toDoForm.appendChild(descriptionInput);
-    // toDoForm.appendChild(lineBreak);
     dateAndPriorityRow.appendChild(dateLabel);
     dateAndPriorityRow.appendChild(dueInput);
-    // toDoForm.appendChild(lineBreak);
 
     dateAndPriorityRow.appendChild(priorityLabel);
-    // toDoForm.appendChild(priorityInput);
     dateAndPriorityRow.appendChild(selectPriority);
     toDoForm.appendChild(dateAndPriorityRow);
-    // toDoForm.appendChild(lineBreak);
     toDoForm.appendChild(submitBtn);
     formContainer.appendChild(toDoForm);
 
