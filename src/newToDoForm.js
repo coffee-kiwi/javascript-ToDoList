@@ -13,48 +13,61 @@ export default function newToDoForm(project) {
     const formTitle = document.getElementById("form-title");
     const display = document.getElementById("display");
     formContainer.textContent = "";
-    formTitle.textContent = "Add a new activity, task, or event:"
+    formTitle.textContent = "Add a new activity, task, or event:";
+    formTitle.classList.add("text-2xl", "font-bold", "text-white");
+    
+    const titleAndMessage = document.createElement("div");
+    titleAndMessage.classList.add("flex", "flex-col")
+    const dateAndPriorityRow = document.createElement("div");
+    dateAndPriorityRow.classList.add("flex", "gap-4", "mt-4", "mb-4");
 
     const toDoForm = document.createElement("form");
+    toDoForm.classList.add("border", "border-gray-300", "rounded", "p-6", "flex", "flex-col", "gap-4");
 
     const titleLabel = document.createElement("label");
     titleLabel.htmlFor = "title"; 
     titleLabel.textContent = "New To Do: ";
+    titleLabel.classList.add("text-white");
     const titleInput = document.createElement("input");
     titleInput.setAttribute("type", "text");
     titleInput.setAttribute("name", "title");
     titleInput.setAttribute("placeholder", "Thinking time");
     titleInput.setAttribute("required", "");
+    titleInput.classList.add("bg-gray-100", "border-gray-100", "rounded", "px-1", "py-1", "w-[40%]");
 
     const message = document.createElement("p");
     message.textContent = "* required"
-    message.classList.add("small");
+    message.classList.add("text-sm", "text-white");
 
     const lineBreak = document.createElement("br")
 
     const descriptionLabel = document.createElement("label");
     descriptionLabel.htmlFor = "description"; 
     descriptionLabel.textContent = "Description: ";
-    const descriptionInput = document.createElement("input");
-    descriptionInput.setAttribute("type", "text");
+    descriptionLabel.classList.add("text-white");
+    const descriptionInput = document.createElement("textarea");
+    descriptionInput.setAttribute("rows", "2");
     descriptionInput.setAttribute("name", "description");
     descriptionInput.setAttribute("placeholder", "Short description..");
+    descriptionInput.classList.add("bg-gray-100", "border-gray-100", "rounded", "px-1", "py-1");
 
     const dateLabel = document.createElement("label");
     dateLabel.htmlFor = "due"; 
     dateLabel.textContent = "Due: ";
-
+    dateLabel.classList.add("text-white");
     const dueInput = document.createElement("input");
     dueInput.setAttribute("type", "date");
     dueInput.setAttribute("name", "due");
+    dueInput.classList.add("bg-gray-100", "border-gray-100", "rounded", "px-1", "py-1", "flex-1");
 
     const priorityLabel = document.createElement("label");
     priorityLabel.htmlFor = "title"; 
     priorityLabel.textContent = "Priority: ";
-
+    priorityLabel.classList.add("text-white");
     const choices = ['Urgent', 'High', 'Medium', 'Low'];
     const selectPriority = document.createElement('select');
     selectPriority.setAttribute("name", "priority");
+    selectPriority.classList.add("bg-gray-100", "border-gray-100", "rounded", "px-1", "py-1", "flex-1");
 
     choices.forEach(choice => {
         const option = new Option(choice, choice);
@@ -62,23 +75,30 @@ export default function newToDoForm(project) {
     });
 
     const submitBtn = document.createElement("button");
-    submitBtn.classList.add("form-button");
+    submitBtn.classList.add("form-button", "bg-blue-500", "hover:bg-blue-600", "text-white", "rounded-lg", "px-4", "py-2", "transition-colors");
     submitBtn.textContent = "Create New Task/Activity";
 
-    toDoForm.appendChild(titleLabel);
+    // toDoForm.appendChild(titleLabel);
+    // toDoForm.appendChild(message);
+    // toDoForm.appendChild(titleInput);
+
+    titleAndMessage.appendChild(titleLabel);
+    titleAndMessage.appendChild(message);
+    toDoForm.appendChild(titleAndMessage);
     toDoForm.appendChild(titleInput);
-    toDoForm.appendChild(message);
-    toDoForm.appendChild(lineBreak);
+    // toDoForm.appendChild(lineBreak);
     toDoForm.appendChild(descriptionLabel);
     toDoForm.appendChild(descriptionInput);
-    toDoForm.appendChild(lineBreak);
-    toDoForm.appendChild(dateLabel);
-    toDoForm.appendChild(dueInput);
-    toDoForm.appendChild(lineBreak);
-    toDoForm.appendChild(priorityLabel);
+    // toDoForm.appendChild(lineBreak);
+    dateAndPriorityRow.appendChild(dateLabel);
+    dateAndPriorityRow.appendChild(dueInput);
+    // toDoForm.appendChild(lineBreak);
+
+    dateAndPriorityRow.appendChild(priorityLabel);
     // toDoForm.appendChild(priorityInput);
-    toDoForm.appendChild(selectPriority);
-    toDoForm.appendChild(lineBreak);
+    dateAndPriorityRow.appendChild(selectPriority);
+    toDoForm.appendChild(dateAndPriorityRow);
+    // toDoForm.appendChild(lineBreak);
     toDoForm.appendChild(submitBtn);
     formContainer.appendChild(toDoForm);
 

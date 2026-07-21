@@ -10,17 +10,17 @@
         <h1 class="text-2xl font-bold text-white">Let's get things done</h1>
     </header>
 
-    <main class="grid grid-cols-[1fr_3fr] gap-4 p-4">
-        <section id="sidebar">
+    <main class="grid grid-cols-[1fr_3fr] gap-4 p-4 items-start">
+        <section id="sidebar" class="grid grid-rows-[repeat(auto-fit,_minmax(100px,_1fr))] gap-4 justify-center max-h-0.7">
             <h2>Projects</h2>
-            <button type="button" id="new-btn" class="bg-blue-500 hover:bg-blue-600 text-white rounded-lg px-4 py-2 transition-colors">New Project</button>
+            <button type="button" id="new-btn" class="basis-0.8 bg-blue-500 hover:bg-blue-600 text-white rounded-lg px-4 py-2 transition-colors">New Project</button>
         </section>
 
-        <section class="main-content">
-            <h2 id="main-content-title"></h2>
-            <div id="display"></div>
+        <section class="main-content grid grid-cols-[1fr] gap-4">
+            <h2 id="main-content-title" class="text-2xl font-bold text-white"></h2>
+            <div id="display" class="grid grid-cols-[1fr] gap-4 max-h[50vh] overflow-y-auto "></div>
             <h2 id = "form-title"></h2>
-            <div id="form-display"></div>
+            <div id="form-display" class="grid gap-4"></div>
 
         </section>
     </main>

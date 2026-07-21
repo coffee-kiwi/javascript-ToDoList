@@ -17,6 +17,10 @@ export default function newProjectForm() {
     const projectForm = document.createElement("form");
     projectForm.classList.add("border", "border-gray-300", "rounded", "px-3", "py-2", "w-full", "focus:outline-none", "focus:ring-2", "focus:ring-blue-400");
 
+    const titleLabel = document.createElement("label");
+    titleLabel.htmlFor = "title"; 
+    titleLabel.textContent = "New Project: ";
+
     const titleInput = document.createElement("input");
     titleInput.setAttribute("type", "text");
     titleInput.setAttribute("name", "title");
@@ -34,6 +38,7 @@ export default function newProjectForm() {
     submitBtn.classList.add("form-button", "bg-blue-500", "hover:bg-blue-600", "text-white", "rounded-lg", "px-4", "py-2", "transition-colors");
     submitBtn.textContent = "Create New Project";
 
+    projectForm.appendChild(titleLabel);
     projectForm.appendChild(titleInput);
     projectForm.appendChild(message);
     projectForm.appendChild(lineBreak);
