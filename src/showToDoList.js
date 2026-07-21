@@ -17,10 +17,20 @@ function showToDoList(project, container) {
         const summary = document.createElement("div");
         summary.classList.add("flex", "justify-between", "items-center", "cursor-pointer", "flex-grow-1");
 
-        const checkBtn = createCheckToggle(item, saveProjects);
+        const checkBtn = createCheckToggle(item, () => {
+            saveProjects();
+            updateTitleStyle();
+        });
 
         const titleEle = document.createElement("h2");
         titleEle.textContent = `${item.title}`;
+
+        function updateTitleStyle() {
+            titleEle.classList.toggle("line-through", item.complete);
+            titleEle.classList.toggle("text-gray-400", item.complete);
+        }
+        updateTitleStyle();
+
 
         const dueEle = document.createElement("p");
         dueEle.textContent = item.due ? `Due: ${item.due}` : "";
