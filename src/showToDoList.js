@@ -1,5 +1,7 @@
 import newToDoForm from "./newToDoForm.js";
 import newToDo from "./newToDoForm.js"
+import { createCheckToggle } from "./checkToggle.js";
+import { saveProjects } from "./state.js";
 
 function showToDoList(project, container) {
 
@@ -9,8 +11,13 @@ function showToDoList(project, container) {
         newItem.classList.add("to-do-item", "bg-gray-100", "p-4", "rounded-lg", "shadow-sm");
 
         // Summary
+        const leftSide = document.createElement("div");
+        leftSide.classList.add("flex", "gap-4", "items-center");
+
         const summary = document.createElement("div");
-        summary.classList.add("flex", "justify-between", "items-center", "cursor-pointer");
+        summary.classList.add("flex", "justify-between", "items-center", "cursor-pointer", "flex-grow-1");
+
+        const checkBtn = createCheckToggle(item, saveProjects);
 
         const titleEle = document.createElement("h2");
         titleEle.textContent = `${item.title}`;
@@ -18,8 +25,10 @@ function showToDoList(project, container) {
         const dueEle = document.createElement("p");
         dueEle.textContent = item.due ? `Due: ${item.due}` : "";
 
+        leftSide.appendChild(checkBtn);
         summary.appendChild(titleEle);
         summary.appendChild(dueEle);
+        leftSide.appendChild(summary);
 
         // Details
         const detailsWrapper = document.createElement("div");
@@ -29,9 +38,9 @@ function showToDoList(project, container) {
         detailsInner.classList.add("overflow-hidden");
 
         Object.entries(item).forEach(([key, val]) => {
-            if (["title", "due", "checklist", "id"].includes(key)) return;
+            if (["title", "due", "complete", "id"].includes(key)) return;
             const detailsEntry = document.createElement("p");
-            detailsEntry.textContent = `${key}: ${val}`;
+            detailsEntry.textContent = `${key.charAt(0).toUpperCase() + key.slice(1)}: ${val}`;
             detailsInner.appendChild(detailsEntry);
         });
 
@@ -43,11 +52,12 @@ function showToDoList(project, container) {
             detailsWrapper.classList.toggle("grid-rows-[1fr]", !expanded);
         });
 
-        newItem.appendChild(summary);
+        newItem.appendChild(leftSide);
         newItem.appendChild(detailsWrapper);
         container.appendChild(newItem);
     }); 
     const newToDoButton = document.createElement("button");
+    newToDoButton.classList.add("bg-blue-500", "hover:bg-blue-600", "text-white", "rounded-lg", "px-4", "py-2", "transition-colors")
     newToDoButton.textContent = "Add a new task or activity";
     newToDoButton.addEventListener("click", () => newToDoForm(project));
     container.appendChild(newToDoButton);

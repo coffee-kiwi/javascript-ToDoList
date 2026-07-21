@@ -9,7 +9,7 @@
 class ToDos {
     constructor(title = "activity") {
         this.title = title;
-        this.checkList = false;
+        this.complete = false;
         this.id = crypto.randomUUID();
     }
 }
