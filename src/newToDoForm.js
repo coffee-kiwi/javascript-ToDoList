@@ -11,7 +11,7 @@ export default function newToDoForm(project) {
     const contentTitle = document.getElementById("main-content-title")
     const formTitle = document.getElementById("form-title");
     const display = document.getElementById("display");
-    const newFormBtn = display.querySelector("button");
+    // const newFormBtn = display.querySelector("button");
     // newFormBtn.classList.add("invisible");
 
     // display.textContent = "";
