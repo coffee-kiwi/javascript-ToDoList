@@ -13,6 +13,7 @@ export default function newProjectForm() {
     contentTitle.textContent = "";
     formContainer.textContent = "";
     formTitle.textContent = "Add a new Project:"
+    formTitle.classList.add("text-2xl", "font-bold", "text-white");
 
     const projectForm = document.createElement("form");
     projectForm.classList.add("border", "border-gray-300", "rounded", "px-3", "py-2", "w-full", "focus:outline-none", "focus:ring-2", "focus:ring-blue-400");
@@ -20,6 +21,7 @@ export default function newProjectForm() {
     const titleLabel = document.createElement("label");
     titleLabel.htmlFor = "title"; 
     titleLabel.textContent = "New Project: ";
+    titleLabel.classList.add("text-white");
 
     const titleInput = document.createElement("input");
     titleInput.setAttribute("type", "text");
@@ -30,7 +32,7 @@ export default function newProjectForm() {
 
     const message = document.createElement("p");
     message.textContent = "* required"
-    message.classList.add("small");
+    message.classList.add("small", "text-white");
 
     const lineBreak = document.createElement("br")
 
