@@ -4,7 +4,10 @@ import { createCheckToggle } from "./checkToggle.js";
 import { saveProjects } from "./state.js";
 
 function showToDoList(project, container) {
-
+    const formContainer = document.getElementById("form-display");
+    const formTitle  = document.getElementById("form-title");
+    formContainer.textContent = "";
+    formTitle.textContent = "";
     container.textContent = "";
     project.toDos.forEach((item) => {
         const newItem = document.createElement("article"); 
