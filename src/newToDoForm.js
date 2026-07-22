@@ -4,7 +4,6 @@ import * as addToDoProperties from "./addToDoProperties.js";
 import { format } from 'date-fns';
 import { addToDoToProject } from "./addToDoToProject.js";
 import { showToDoList } from "./showToDoList.js";
-// import { format, parse } from 'date-fns';
 
 export default function newToDoForm(project) {
 
