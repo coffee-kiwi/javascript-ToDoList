@@ -11,10 +11,7 @@ export default function newToDoForm(project) {
     const contentTitle = document.getElementById("main-content-title")
     const formTitle = document.getElementById("form-title");
     const display = document.getElementById("display");
-    // const newFormBtn = display.querySelector("button");
-    // newFormBtn.classList.add("invisible");
 
-    // display.textContent = "";
     formContainer.textContent = "";
     formTitle.textContent = "Add a new activity, task, or event:";
     formTitle.classList.add("text-2xl", "font-bold", "text-white");
@@ -106,7 +103,6 @@ export default function newToDoForm(project) {
             addToDoProperties.addPriority(newToDo, save["priority"]);
             addToDoToProject(project, newToDo);
             showToDoList(project, display);
-            // newFormBtn.classList.add("visible");
             saveProjects();
         } else {
             message.textContent = "Ensure to write a title for this new to do :)"

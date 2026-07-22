@@ -13,7 +13,6 @@ function showToDoList(project, container) {
         const newItem = document.createElement("article"); 
         newItem.classList.add("to-do-item", "bg-gray-100", "p-4", "rounded-lg", "shadow-sm");
 
-        // Summary
         const leftSide = document.createElement("div");
         leftSide.classList.add("flex", "gap-4", "items-center");
 
@@ -43,7 +42,6 @@ function showToDoList(project, container) {
         summary.appendChild(dueEle);
         leftSide.appendChild(summary);
 
-        // Details
         const detailsWrapper = document.createElement("div");
         detailsWrapper.classList.add("grid", "grid-rows-[0fr]", "transition-[grid-template-rows]", "duration-300");
 
