@@ -38,6 +38,5 @@ sidebar.addEventListener("click", (e) => {
 });
 
 newProjectBtn.addEventListener("click", (e) => {
-  console.log("New Project form generating");
   newProjectForm();
 });
